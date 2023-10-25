@@ -20,6 +20,11 @@ val GabaritoTypography = Typography(
         fontWeight = FontWeight.Medium,
         fontSize = 28.sp
     ),
+    titleMedium = TextStyle(
+        fontFamily = Gabarito,
+        fontWeight = FontWeight.Normal,
+        fontSize = 24.sp
+    ),
     bodyLarge = TextStyle(
         fontFamily = Gabarito,
         fontWeight = FontWeight.Normal,
