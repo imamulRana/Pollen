@@ -33,8 +33,8 @@ class PollenViewModel : ViewModel() {
 
 
     private val getAllFlower = viewModelScope.launch(Dispatchers.IO) {
-        db.collection("flowers")
-            .get().addOnSuccessListener { d ->
+        db.collection("inventory")
+            .addSnapshotListener { d, _ ->
                 val flower = d?.toObjects(Flower::class.java)
                 _flowersList.update { flower ?: listOf() }
 //                val docs = d?.documents?.map { it.id }
@@ -79,7 +79,8 @@ class PollenViewModel : ViewModel() {
                     userPhone = userPhone,
                     userAddress = userAddress,
                     userOrder = _flowerCartState.value.cartFlowerList.map { it.flowerName },
-                    userTotalAmount = _flowerCartState.value.cartFlowerList.sumOf { it.flowerPrice }
+                    userTotalAmount = _flowerCartState.value.cartFlowerList.sumOf { it.flowerPrice },
+                    id = (1000..9000).random()
                 )
             )
     }

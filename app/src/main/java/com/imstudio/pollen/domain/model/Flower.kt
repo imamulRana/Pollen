@@ -5,5 +5,6 @@ data class Flower(
     val flowerImage: String = "",
     val flowerColor: String = "",
     val flowerDescription: String = "",
-    val flowerPrice: Int = 0
+    val flowerPrice: Int = 0,
+    val flowerType: String = ""
 )
